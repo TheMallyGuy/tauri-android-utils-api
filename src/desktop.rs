@@ -31,4 +31,16 @@ impl<R: Runtime> AndroidUtils<R> {
   pub fn get_app_tv_banner(&self, _payload: AppBannerRequest) -> crate::Result<AppBannerResult> {
     Ok(AppBannerResult::default())
   }
+
+  pub fn get_wifi_signal(&self) -> crate::Result<WifiSignalResult> {
+    Ok(WifiSignalResult::default())
+  }
+
+  pub fn get_bluetooth_status(&self) -> crate::Result<BluetoothStatusResult> {
+    Ok(BluetoothStatusResult::default())
+  }
+
+  pub fn open_settings(&self) -> crate::Result<()> {
+    Ok(())
+  }
 }

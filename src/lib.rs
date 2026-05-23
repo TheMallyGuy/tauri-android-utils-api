@@ -40,6 +40,9 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
       commands::get_installed_apps,
       commands::get_user_installed_apps,
       commands::get_app_tv_banner,
+      commands::get_wifi_signal,
+      commands::get_bluetooth_status,
+      commands::open_settings,
     ])
     .setup(|app, api| {
       #[cfg(mobile)]

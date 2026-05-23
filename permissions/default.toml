@@ -4,4 +4,7 @@ permissions = [
   "allow-get-installed-apps",
   "allow-get-user-installed-apps",
   "allow-get-app-tv-banner",
+  "allow-get-wifi-signal",
+  "allow-get-bluetooth-status",
+  "allow-open-settings",
 ]

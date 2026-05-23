@@ -43,3 +43,23 @@ pub struct AppBannerResult {
   pub data: Option<String>,
   pub mime_type: Option<String>,
 }
+
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WifiSignalResult {
+  pub connected: bool,
+  /// Signal strength in dBm (e.g. -55). 0 when not connected.
+  pub rssi: i32,
+  /// Discrete signal level 0–4 (strongest). 0 when not connected.
+  pub level: i32,
+  pub ssid: String,
+}
+
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BluetoothStatusResult {
+  /// Whether the device has Bluetooth hardware.
+  pub available: bool,
+  /// Whether Bluetooth is currently switched on.
+  pub enabled: bool,
+}

@@ -52,4 +52,25 @@ impl<R: Runtime> AndroidUtils<R> {
       .run_mobile_plugin("getAppTvBanner", payload)
       .map_err(Into::into)
   }
+
+  pub fn get_wifi_signal(&self) -> crate::Result<WifiSignalResult> {
+    self
+      .0
+      .run_mobile_plugin("getWifiSignal", ())
+      .map_err(Into::into)
+  }
+
+  pub fn get_bluetooth_status(&self) -> crate::Result<BluetoothStatusResult> {
+    self
+      .0
+      .run_mobile_plugin("getBluetoothStatus", ())
+      .map_err(Into::into)
+  }
+
+  pub fn open_settings(&self) -> crate::Result<()> {
+    self
+      .0
+      .run_mobile_plugin("openSettings", ())
+      .map_err(Into::into)
+  }
 }

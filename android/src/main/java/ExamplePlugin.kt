@@ -1,11 +1,16 @@
 package com.plugin.androidutils
 
+import android.bluetooth.BluetoothManager
+import android.content.Context
+import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.net.wifi.WifiManager
+import android.provider.Settings
 import android.util.Base64
 import app.tauri.annotation.Command
 import app.tauri.annotation.TauriPlugin
@@ -112,6 +117,47 @@ class AndroidUtils(private val activity: Activity) : Plugin(activity) {
         } catch (e: PackageManager.NameNotFoundException) {
             invoke.reject("Package not found: $packageName")
         }
+    }
+
+    @Command
+    fun getWifiSignal(invoke: Invoke) {
+        val wifiManager = activity.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        @Suppress("DEPRECATION")
+        val wifiInfo = wifiManager.connectionInfo
+        val response = JSObject()
+        if (wifiInfo != null && wifiInfo.networkId != -1) {
+            val rssi = wifiInfo.rssi
+            @Suppress("DEPRECATION")
+            val level = WifiManager.calculateSignalLevel(rssi, 5)
+            response.put("connected", true)
+            response.put("rssi", rssi)
+            response.put("level", level)
+            response.put("ssid", wifiInfo.ssid ?: "")
+        } else {
+            response.put("connected", false)
+            response.put("rssi", 0)
+            response.put("level", 0)
+            response.put("ssid", "")
+        }
+        invoke.resolve(response)
+    }
+
+    @Command
+    fun getBluetoothStatus(invoke: Invoke) {
+        val bluetoothManager = activity.getSystemService(Context.BLUETOOTH_SERVICE) as? BluetoothManager
+        val adapter = bluetoothManager?.adapter
+        val response = JSObject()
+        response.put("available", adapter != null)
+        response.put("enabled", adapter?.isEnabled ?: false)
+        invoke.resolve(response)
+    }
+
+    @Command
+    fun openSettings(invoke: Invoke) {
+        val intent = Intent(Settings.ACTION_SETTINGS)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        activity.startActivity(intent)
+        invoke.resolve(JSObject())
     }
 
     private fun drawableToBitmap(drawable: Drawable): Bitmap {

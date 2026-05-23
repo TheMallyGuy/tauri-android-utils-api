@@ -43,3 +43,36 @@ export interface AppBannerResult {
 export async function getAppTvBanner(packageName: string): Promise<AppBannerResult> {
   return await invoke<AppBannerResult>("plugin:android-utils|get_app_tv_banner", { packageName });
 }
+
+export interface WifiSignalResult {
+  /** Whether the device is currently connected to a WiFi network. */
+  connected: boolean;
+  /** Signal strength in dBm (e.g. -55). 0 when not connected. */
+  rssi: number;
+  /** Discrete signal level 0–4 (4 = strongest). 0 when not connected. */
+  level: number;
+  /** SSID of the connected network, or empty string when not connected. */
+  ssid: string;
+}
+
+export interface BluetoothStatusResult {
+  /** Whether the device has Bluetooth hardware. */
+  available: boolean;
+  /** Whether Bluetooth is currently switched on. */
+  enabled: boolean;
+}
+
+/** Get the current WiFi signal strength and connection info. */
+export async function getWifiSignal(): Promise<WifiSignalResult> {
+  return await invoke<WifiSignalResult>("plugin:android-utils|get_wifi_signal");
+}
+
+/** Get whether Bluetooth hardware is available and switched on. */
+export async function getBluetoothStatus(): Promise<BluetoothStatusResult> {
+  return await invoke<BluetoothStatusResult>("plugin:android-utils|get_bluetooth_status");
+}
+
+/** Open the Android system Settings app. */
+export async function openSettings(): Promise<void> {
+  await invoke("plugin:android-utils|open_settings");
+}

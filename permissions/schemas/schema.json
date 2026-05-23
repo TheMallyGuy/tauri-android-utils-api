@@ -295,6 +295,18 @@
       "type": "string",
       "oneOf": [
         {
+          "description": "Enables the get_app_tv_banner command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-get-app-tv-banner",
+          "markdownDescription": "Enables the get_app_tv_banner command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the get_app_tv_banner command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-get-app-tv-banner",
+          "markdownDescription": "Denies the get_app_tv_banner command without any pre-configured scope."
+        },
+        {
           "description": "Enables the get_installed_apps command without any pre-configured scope.",
           "type": "string",
           "const": "allow-get-installed-apps",
@@ -331,10 +343,10 @@
           "markdownDescription": "Denies the ping command without any pre-configured scope."
         },
         {
-          "description": "Default permissions for android-utils plugin\n#### This default permission set includes:\n\n- `allow-get-installed-apps`\n- `allow-get-user-installed-apps`",
+          "description": "Default permissions for android-utils plugin\n#### This default permission set includes:\n\n- `allow-get-installed-apps`\n- `allow-get-user-installed-apps`\n- `allow-get-app-tv-banner`",
           "type": "string",
           "const": "default",
-          "markdownDescription": "Default permissions for android-utils plugin\n#### This default permission set includes:\n\n- `allow-get-installed-apps`\n- `allow-get-user-installed-apps`"
+          "markdownDescription": "Default permissions for android-utils plugin\n#### This default permission set includes:\n\n- `allow-get-installed-apps`\n- `allow-get-user-installed-apps`\n- `allow-get-app-tv-banner`"
         }
       ]
     }

@@ -33,3 +33,24 @@ pub(crate) async fn get_app_tv_banner<R: Runtime>(
 ) -> Result<AppBannerResult> {
     app.android_utils().get_app_tv_banner(payload)
 }
+
+#[command]
+pub(crate) async fn get_wifi_signal<R: Runtime>(
+    app: AppHandle<R>,
+) -> Result<WifiSignalResult> {
+    app.android_utils().get_wifi_signal()
+}
+
+#[command]
+pub(crate) async fn get_bluetooth_status<R: Runtime>(
+    app: AppHandle<R>,
+) -> Result<BluetoothStatusResult> {
+    app.android_utils().get_bluetooth_status()
+}
+
+#[command]
+pub(crate) async fn open_settings<R: Runtime>(
+    app: AppHandle<R>,
+) -> Result<()> {
+    app.android_utils().open_settings()
+}
