@@ -90,7 +90,7 @@ class AndroidUtils(private val activity: Activity) : Plugin(activity) {
 
     @Command
     fun getAppTvBanner(invoke: Invoke) {
-        val packageName = invoke.getString("packageName") ?: run {
+        val packageName = invoke.getArgs().optString("packageName").takeIf { it.isNotEmpty() } ?: run {
             invoke.reject("packageName is required")
             return
         }
