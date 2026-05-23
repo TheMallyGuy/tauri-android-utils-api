@@ -15,6 +15,8 @@ export interface AppsResult {
   apps: AppInfo[];
 }
 
+export type UserInstalledAppsResult = AppInfo[];
+
 /** Get ALL installed apps (system + user) */
 export async function getInstalledApps(): Promise<AppInfo[]> {
   const result = await invoke<AppsResult>("plugin:android-utils|get_installed_apps");
@@ -22,7 +24,7 @@ export async function getInstalledApps(): Promise<AppInfo[]> {
 }
 
 /** Get only user-installed apps (no system apps) */
-export async function getUserInstalledApps(): Promise<AppInfo[]> {
+export async function getUserInstalledApps(): Promise<UserInstalledAppsResult> {
   const result = await invoke<AppsResult>("plugin:android-utils|get_user_installed_apps");
   return result.apps;
 }
