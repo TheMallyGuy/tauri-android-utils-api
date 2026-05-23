@@ -30,3 +30,16 @@ pub struct AppInfo {
 pub struct AppsResult {
   pub apps: Vec<AppInfo>,
 }
+
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AppBannerRequest {
+  pub package_name: String,
+}
+
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AppBannerResult {
+  pub data: Option<String>,
+  pub mime_type: Option<String>,
+}

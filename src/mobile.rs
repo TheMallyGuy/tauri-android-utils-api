@@ -45,4 +45,11 @@ impl<R: Runtime> AndroidUtils<R> {
       .run_mobile_plugin("getUserInstalledApps", ())
       .map_err(Into::into)
   }
+
+  pub fn get_app_tv_banner(&self, payload: AppBannerRequest) -> crate::Result<AppBannerResult> {
+    self
+      .0
+      .run_mobile_plugin("getAppTvBanner", payload)
+      .map_err(Into::into)
+  }
 }

@@ -27,4 +27,8 @@ impl<R: Runtime> AndroidUtils<R> {
   pub fn get_user_installed_apps(&self) -> crate::Result<AppsResult> {
     Ok(AppsResult::default())
   }
+
+  pub fn get_app_tv_banner(&self, _payload: AppBannerRequest) -> crate::Result<AppBannerResult> {
+    Ok(AppBannerResult::default())
+  }
 }

@@ -25,3 +25,11 @@ pub(crate) async fn get_user_installed_apps<R: Runtime>(
 ) -> Result<AppsResult> {
     app.android_utils().get_user_installed_apps()
 }
+
+#[command]
+pub(crate) async fn get_app_tv_banner<R: Runtime>(
+    app: AppHandle<R>,
+    payload: AppBannerRequest,
+) -> Result<AppBannerResult> {
+    app.android_utils().get_app_tv_banner(payload)
+}
