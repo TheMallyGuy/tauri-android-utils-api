@@ -3,4 +3,5 @@ description = "Default permissions for android-utils plugin"
 permissions = [
   "allow-get-installed-apps",
   "allow-get-user-installed-apps",
+  "allow-get-app-tv-banner",
 ]
