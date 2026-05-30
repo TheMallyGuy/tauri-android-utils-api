@@ -49,6 +49,32 @@ Denies the get_app_tv_banner command without any pre-configured scope.
 <tr>
 <td>
 
+`android-utils:allow-get-bluetooth-status`
+
+</td>
+<td>
+
+Enables the get_bluetooth_status command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`android-utils:deny-get-bluetooth-status`
+
+</td>
+<td>
+
+Denies the get_bluetooth_status command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
 `android-utils:allow-get-installed-apps`
 
 </td>
@@ -101,32 +127,6 @@ Denies the get_user_installed_apps command without any pre-configured scope.
 <tr>
 <td>
 
-`android-utils:allow-ping`
-
-</td>
-<td>
-
-Enables the ping command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-`android-utils:deny-ping`
-
-</td>
-<td>
-
-Denies the ping command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
 `android-utils:allow-get-wifi-signal`
 
 </td>
@@ -153,32 +153,6 @@ Denies the get_wifi_signal command without any pre-configured scope.
 <tr>
 <td>
 
-`android-utils:allow-get-bluetooth-status`
-
-</td>
-<td>
-
-Enables the get_bluetooth_status command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-`android-utils:deny-get-bluetooth-status`
-
-</td>
-<td>
-
-Denies the get_bluetooth_status command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
 `android-utils:allow-open-settings`
 
 </td>
@@ -198,6 +172,32 @@ Enables the open_settings command without any pre-configured scope.
 <td>
 
 Denies the open_settings command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`android-utils:allow-ping`
+
+</td>
+<td>
+
+Enables the ping command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`android-utils:deny-ping`
+
+</td>
+<td>
+
+Denies the ping command without any pre-configured scope.
 
 </td>
 </tr>
